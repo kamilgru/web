@@ -2,13 +2,20 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Exceptions\PageNotFoundException; // Add this line
-use App\Controllers\BaseController;
+use App\Libraries\CIAuth;
 
 class AdminController extends BaseController
 {
     public function index()
-	{
-		echo 'admin dashboard home'
+    {
+		$data = [
+			'pageTitle'=>'Dashboard',
+		];
+		return view('home', $data);
+    }
+	
+	public function logoutHandler(){
+		CIAuth::forget();
+		return redirect()->route('admin.login.form')->with('fail','you are logged out');
 	}
 }
