@@ -20,10 +20,10 @@
 			<a class="nav-link" href="<?=base_url('admin/login')?>">Login</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="account.php">My Account</a>
+			<a class="nav-link" href="<?= base_url('admin/new-post')?>">My Account</a>
 		  </li>
 		  		  <li class="nav-item">
-			<a class="nav-link" href="<?= route_to('admin.logout') ?>">Live Search</a>
+			<a class="nav-link" href="#">Live Search</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="<?= route_to('admin.logout') ?>">Logout</a>
