@@ -9,9 +9,8 @@ class AdminController extends BaseController
 {
     public function index()
     {
-		$data = [
-			'pageTitle'=>'Dashboard',
-		];
+		$post = new post();
+		$data['post'] = $post->findAll();
 		return view('home', $data);
     }
 	
@@ -32,7 +31,6 @@ class AdminController extends BaseController
 		'title' => $this->request->getPost('title'),
 		'genre' => $this->request->getPost('genre'),
 		'description' => $this->request->getPost('description'),
-		'image' => $this->request->getPost('image'),
 		];
 		$post->save($data);
 		return redirect('admin/new-post')->with('status','inserted successfully');

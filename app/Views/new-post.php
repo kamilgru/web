@@ -33,11 +33,6 @@
 			    <label> Description</label>
 			    <input type="text" name="description" class="form-control" placeholder="Enter description"> 
 			  </div>
-
- 			  <div class="form-group">
-			    <label> Picture</label>
-			    <input type="file" name="image" class="form-control"> 
-			  </div>
 			  
 			  <button type="submit" class="float-right mt-md-3 btn btn-lg btn-dark">Add new post</button>
 			  

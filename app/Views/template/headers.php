@@ -14,13 +14,10 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 		  <li class="nav-item">
-			<a class="nav-link" href="<?=base_url('admin/home')?>">Home</a>
-		  </li>
-		  <li class="nav-item">
 			<a class="nav-link" href="<?=base_url('admin/login')?>">Login</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="<?= base_url('admin/new-post')?>">My Account</a>
+			<a class="nav-link" href="<?= base_url('admin/new-post')?>">Create Post</a>
 		  </li>
 		  		  <li class="nav-item">
 			<a class="nav-link" href="#">Live Search</a>

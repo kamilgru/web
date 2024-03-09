@@ -12,8 +12,7 @@ class Post extends Model
 	protected $allowedFields = [
 	 'title',
 	 'genre',
-	 'description',
-	 'image',
+	 'description'
 	];
 	
 }
