@@ -11,6 +11,7 @@ class AuthController extends BaseController
 {
     protected $helpers = ['url', 'form'];
 
+
     public function loginForm()
     {
         $data = [

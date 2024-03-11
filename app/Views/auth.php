@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <div class = "container mt-2 mt-md-5">
 
 	<div class="row">
@@ -57,8 +58,12 @@
 	  <label for="check">Remember Me</label>
 		<input type="checkbox" id="check" name="check">
 	  <?php } ?>
+	   <input class="btn btn-primary float-right mt-2" type="submit" value="Sign In">
+		</form>
+	  	</div>
 
-	  <input class="btn btn-primary float-right mt-2" type="submit" value="Sign In">
+
+	 
 	</form>
 	</div>
 </body>

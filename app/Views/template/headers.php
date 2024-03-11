@@ -20,7 +20,7 @@
 			<a class="nav-link" href="<?= base_url('admin/new-post')?>">Create Post</a>
 		  </li>
 		  		  <li class="nav-item">
-			<a class="nav-link" href="#">Live Search</a>
+			<a class="nav-link" href="<?= base_url('admin/register')?>">Register</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="<?= route_to('admin.logout') ?>">Logout</a>

@@ -32,7 +32,7 @@
 			  <div class="form-group">
 			    <label> Description</label>
 			    <input type="text" name="description" class="form-control" placeholder="Enter description"> 
-			  </div>
+			  </div> 
 			  
 			  <button type="submit" class="float-right mt-md-3 btn btn-lg btn-dark">Add new post</button>
 			  
