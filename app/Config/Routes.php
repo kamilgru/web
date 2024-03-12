@@ -18,6 +18,7 @@ $routes->group('admin', static function($routes){
 		$routes->get('new-post','AdminController::addPost');
 		$routes->post('add', 'AdminController::store');
 		$routes->add('register', 'RegController::index');
+		$routes->get('search', 'AdminController::search');
 
 
 	});

@@ -4,13 +4,14 @@ namespace App\Controllers;
 
 use App\Libraries\CIAuth;
 use App\Models\Post;
+use App\Models\Ajaxsearch_model;
 
 class AdminController extends BaseController
 {
     public function index()
     {
-		$post = new post();
-		$data['post'] = $post->findAll();
+		$model = new Post();
+		$data['post'] = $model->orderBy('id', 'DESC')-> findAll(); //
 		return view('home', $data);
     }
 	

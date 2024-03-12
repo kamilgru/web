@@ -14,5 +14,11 @@ class Post extends Model
 	 'genre',
 	 'description'
 	];
+
+	public function __construct() {
+		parent::__construct();
+		$db = \Config\Database::connect();
+		$builder = $db->table('posts');
+	}
 	
 }
