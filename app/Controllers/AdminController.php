@@ -9,9 +9,9 @@ class AdminController extends BaseController
 {
     public function index()
     {
-		$model = new Post();
-		$data['post'] = $model->orderBy('id', 'DESC')-> findAll(); //
-		return view('home', $data);
+		//$model = new Post();
+		//$data['post'] = $model->orderBy('id', 'DESC')-> findAll(); //
+		return view('home');
     }
 	
 	public function logoutHandler(){
@@ -34,6 +34,13 @@ class AdminController extends BaseController
 		];
 		$post->save($data);
 		$data = ['status'=>'data inserted'];
+		return $this->response->setJSON($data);
+	}
+	
+	public function fetch()
+	{
+		$post = new post();
+		$data['post'] = $post->findall();
 		return $this->response->setJSON($data);
 	}
 }

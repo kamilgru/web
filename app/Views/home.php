@@ -5,17 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
-	<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap4.css" />
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
-	<script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap4.js"></script>
-	<script>
-		new DataTable('#post');
-	</script>
+	
 <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
@@ -29,7 +23,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> 
       <div class="modal-body">
         <label> Title</label> <span id="error_title" class="text-danger ms-3"></span>
 		<input type="text" class="form-control title" placeholder="Enter Title">
@@ -52,42 +46,54 @@
 				<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary float-end">Add data</a>
 </head>
 <body>
-	<table id="example" class="table table-striped table-bordered" style="width:100%">
+	<table class="table table-striped table-bordered" style="width:100%">
     <thead>
-	<tr>
-		<th>ID</th>
-		<th>Title</th>
-		<th>Genre</th>
-		<th>Description</th>
-		<th>Created</th>
-		<th>Action</th>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Genre</th>
+			<th>Description</th>
+			<th>Created</th>
+			<th>Action</th>
         </tr>
         </thead>
+		<tbody class = "postdata">
+
+	
+	
+	<script>
+	$(document).ready(function () {
+		loaddata();
+	});
+	
+	function loaddata()
+	{
+		$.ajax({
+			method: "GET",
+			url: "home/getdata",
+			success: function (response) {
+				//console.log(response.post);
+				$.each(response.post, function (key, value) {
+					//console.log(value['id']);
+					$('.postdata').append('<tr>\
+						<td class="id">' + (value['id'])+'</td>\
+						<td class="id">' + (value['title'])+'</td>\
+						<td class="id">' + (value['genre'])+'</td>\
+						<td class="id">' + (value['description'])+'</td>\
+						<td class="id">' + (value['created_at'])+'</td>\
+						<td>\
+						<a href="#" class ="badge btn-primary edit_btn">Edit</a>\
+						<a href="#" class ="badge btn-primary deletebtn">Delete</a>\
+					</td>\
+					</tr>');
+					
+				});
+				
+			}
+	});
+}
+	
 		
-			 <?php
-				foreach($post as $row){
-				?>
-				 <tr> <!-- Add this line -->
-				 <td><?php echo $row['id']; ?></td>
-				 <td><?php echo $row['title']; ?></td>
-				 <td><?php echo $row['genre']; ?></td>
-				 <td><?php echo $row['description']; ?></td>
-				 <td><?php echo $row['created_at']; ?></td>
-				 <td>
-					<a data-id="<?php echo $row['id']; ?>" class="btn btn-primary btnEdit">Edit</a>
-					<a data-id="<?php echo $row['id']; ?>" class="btn btn-primary btnDelete">Delete</a>
-					</td>
-					</tr>
-					<?php
-					}
-					?>
-	
-	<script>
-		new DataTable('#example');
-	</script>
-	
-	
-	<script>
 $(document).ready(function () {
     $(document).on('click','.ajaxadd-save', function (){
         if($.trim($('.title').val()).length == 0){

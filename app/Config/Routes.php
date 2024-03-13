@@ -19,6 +19,7 @@ $routes->group('admin', static function($routes){
 		$routes->add('register', 'RegController::index');
 		$routes->get('search', 'AdminController::search');
 		$routes->get('home','AdminController::index');
+		$routes->get('home/getdata','AdminController::fetch');
 		$routes->post('home/store', 'AdminController::store');
 
 
