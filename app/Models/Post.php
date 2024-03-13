@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class Post extends Model
 {
-	
 	protected $table = 'posts';
 	protected $priamryKey = 'id';
 	protected $allowedFields = [
@@ -15,10 +14,10 @@ class Post extends Model
 	 'description'
 	];
 
-	public function __construct() {
+	/*public function __construct() {
 		parent::__construct();
 		$db = \Config\Database::connect();
 		$builder = $db->table('posts');
-	}
+	}*/
 	
 }

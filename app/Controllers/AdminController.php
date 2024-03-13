@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Libraries\CIAuth;
 use App\Models\Post;
-use App\Models\Ajaxsearch_model;
 
 class AdminController extends BaseController
 {
@@ -27,13 +26,14 @@ class AdminController extends BaseController
 	
 	public function store()
 	{
-		$post = new post();
+		$post = new Post();
 		$data = [
 		'title' => $this->request->getPost('title'),
 		'genre' => $this->request->getPost('genre'),
-		'description' => $this->request->getPost('description'),
+		'description' => $this->request->getPost('description')
 		];
 		$post->save($data);
-		return redirect('admin/new-post')->with('status','inserted successfully');
+		$data = ['status'=>'data inserted'];
+		return $this->response->setJSON($data);
 	}
 }

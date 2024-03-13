@@ -11,7 +11,6 @@ $routes->get('/', 'Home::index');
 $routes->group('admin', static function($routes){
 	
 		$routes->group('', ['filter'=>'cifilter:auth'], static function($routes){
-			$routes->get('home','AdminController::index', ['as'=>'admin.home']);
 			$routes->get('logout','AdminController::logoutHandler',['as'=>'admin.logout']);
 			
 			
@@ -19,6 +18,8 @@ $routes->group('admin', static function($routes){
 		$routes->post('add', 'AdminController::store');
 		$routes->add('register', 'RegController::index');
 		$routes->get('search', 'AdminController::search');
+		$routes->get('home','AdminController::index');
+		$routes->post('home/store', 'AdminController::store');
 
 
 	});
