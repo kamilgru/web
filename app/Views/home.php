@@ -40,6 +40,40 @@
   </div>
 </div>
 	
+	
+	<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <div class="modal-body">
+	  <input type="hidden" id="id">
+	  <div class="form-group">
+        <label> Title</label>
+		<input type="text" id="title" class="form-control title" placeholder="Enter Title">
+		</div>
+		<div class="form-group">
+		<label> Genre</label>
+		<input type="text" id="genre" class="form-control genre" placeholder="Enter Genre">
+		</div>
+		<div class="form-group">
+		<label> Description</label>
+		<input type="text" id="description" class="form-control description" placeholder="Enter Description">
+      </div>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary ajaxadd-update">Edit changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	<div class = "col-md-12">
 		<div class="card">
 			<div class="card-header">
@@ -61,37 +95,78 @@
 
 	
 	
-	<script>
+<script>
 	$(document).ready(function () {
-		loaddata();
-	});
-	
-	function loaddata()
-	{
+    loaddata();
+
+    $(document).on('click', '.edit_btn', function () {
+        var id = $(this).closest('tr').find('.id').text();
+		
 		$.ajax({
-			method: "GET",
-			url: "home/getdata",
+            method: "POST",
+            url: "home/edit",
+            data: {
+				'id': id
+			},
 			success: function (response) {
-				//console.log(response.post);
-				$.each(response.post, function (key, value) {
-					//console.log(value['id']);
-					$('.postdata').append('<tr>\
-						<td class="id">' + (value['id'])+'</td>\
-						<td class="id">' + (value['title'])+'</td>\
-						<td class="id">' + (value['genre'])+'</td>\
-						<td class="id">' + (value['description'])+'</td>\
-						<td class="id">' + (value['created_at'])+'</td>\
-						<td>\
-						<a href="#" class ="badge btn-primary edit_btn">Edit</a>\
-						<a href="#" class ="badge btn-primary deletebtn">Delete</a>\
-					</td>\
-					</tr>');
-					
+				$.each(response, function (key, value) {
+					$('#id').val(value['id']);
+					$('#title').val(value['title']);
+					$('#genre').val(value['genre']);
+					$('#description').val(value['description']);
+					$('#EditModal').modal('show');
 				});
-				
 			}
-	});
-}
+		});
+    });
+});
+
+    $(document).on('click', '.ajaxadd-update', function () {
+        var data = {
+            'id': $('#id').val(),
+            'title': $('#title').val(),
+            'genre': $('#genre').val(),
+            'description': $('#description').val()
+        };
+
+        $.ajax({
+            method: "POST",
+            url: "home/update",
+            data: data,
+            success: function (response) {
+				$('#EditModal').modal('hide');
+				$('.postdata').html("");
+				loaddata();
+				
+                alertify.set('notifier', 'position', 'top-right');
+                alertify.success(response.status);
+            }
+        });
+    });
+
+
+    function loaddata() {
+        $.ajax({
+            method: "GET",
+            url: "home/getdata",
+            success: function (response) {
+                $.each(response.post, function (key, value) {
+                    $('.postdata').append('<tr>\
+                        <td class="id">' + (value['id']) + '</td>\
+                        <td>' + (value['title']) + '</td>\
+                        <td>' + (value['genre']) + '</td>\
+                        <td>' + (value['description']) + '</td>\
+                        <td>' + (value['created_at']) + '</td>\
+                        <td>\
+                            <a href="#" class="badge btn-primary edit_btn">Edit</a>\
+                            <a href="#" class="badge btn-primary deletebtn">Delete</a>\
+                        </td>\
+                    </tr>');
+                });
+            }
+        });
+    }
+
 	
 		
 $(document).ready(function () {
@@ -140,6 +215,9 @@ $(document).ready(function () {
                     $('#exampleModal').modal('hide');
                     $('#exampleModal').find('input').val('');
 					
+					$('.postdata').html("");
+					loaddata();
+					
                     alertify.set('notifier','position','top-right');
                     alertify.success(response.status);
                 }
@@ -148,6 +226,6 @@ $(document).ready(function () {
     }); 
 });
 
-	</script>
+</script>
 </body>
 </html>

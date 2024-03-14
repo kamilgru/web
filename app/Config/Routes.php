@@ -21,6 +21,9 @@ $routes->group('admin', static function($routes){
 		$routes->get('home','AdminController::index');
 		$routes->get('home/getdata','AdminController::fetch');
 		$routes->post('home/store', 'AdminController::store');
+		$routes->post('home/edit', 'AdminController::edit');
+		$routes->post('home/update', 'AdminController::update');
+		
 
 
 	});

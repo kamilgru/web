@@ -9,8 +9,6 @@ class AdminController extends BaseController
 {
     public function index()
     {
-		//$model = new Post();
-		//$data['post'] = $model->orderBy('id', 'DESC')-> findAll(); //
 		return view('home');
     }
 	
@@ -42,5 +40,27 @@ class AdminController extends BaseController
 		$post = new post();
 		$data['post'] = $post->findall();
 		return $this->response->setJSON($data);
+	}
+	
+	public function edit()
+	{
+		$edit = new post();
+		$id = $this->request->getPost('id');
+		$data['edit'] = $edit->find($id);
+		return $this->response->setJSON($data);
+	}
+
+public function update()
+{
+    $edit = new Post();
+    $id = $this->request->getPost('id');
+    $data = [
+        'title' => $this->request->getPost('title'),
+        'genre' => $this->request->getPost('genre'),
+        'description' => $this->request->getPost('description')
+    ];
+    $edit->update($id, $data);
+    $message = ['status' => 'updated successfully'];
+    return $this->response->setJSON($message);
 	}
 }
