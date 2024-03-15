@@ -50,17 +50,26 @@ class AdminController extends BaseController
 		return $this->response->setJSON($data);
 	}
 
-public function update()
-{
-    $edit = new Post();
-    $id = $this->request->getPost('id');
-    $data = [
-        'title' => $this->request->getPost('title'),
-        'genre' => $this->request->getPost('genre'),
-        'description' => $this->request->getPost('description')
-    ];
-    $edit->update($id, $data);
-    $message = ['status' => 'updated successfully'];
-    return $this->response->setJSON($message);
+	public function update()
+	{
+		$edit = new Post();
+		$id = $this->request->getPost('id');
+		$data = [
+			'title' => $this->request->getPost('title'),
+			'genre' => $this->request->getPost('genre'),
+			'description' => $this->request->getPost('description')
+		];
+		$edit->update($id, $data);
+		$message = ['status' => 'updated successfully'];
+		return $this->response->setJSON($message);
+	}
+	
+	public function delete()
+	{
+		$delete = new post();
+		$delete->delete($this->request->getPost('id'));
+		$message = ['status' => 'Deleted Successfully'];
+		return $this->response->setJSON($message);
+		
 	}
 }

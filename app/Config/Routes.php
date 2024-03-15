@@ -23,6 +23,7 @@ $routes->group('admin', static function($routes){
 		$routes->post('home/store', 'AdminController::store');
 		$routes->post('home/edit', 'AdminController::edit');
 		$routes->post('home/update', 'AdminController::update');
+		$routes->post('home/delete', 'AdminController::delete');
 		
 
 
