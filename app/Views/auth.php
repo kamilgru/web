@@ -11,7 +11,7 @@
 		<div class="col-md-6 mt-2">
 		<h2 class="text-center text-dark mb-2 ">Login</h2>
 		<?php $validation = \Config\Services::validation(); ?>
-		<form action="<?= base_url('admin/login') ?>" method="POST">
+		<form action="<?= base_url('admin/home') ?>" method="POST">
 		  <?= csrf_field() ?>
 		  <?php if(!empty(session()->getFlashdata('success'))) : ?>
 				<div class="alert alert-success">
