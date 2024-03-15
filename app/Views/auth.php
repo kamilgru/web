@@ -61,9 +61,6 @@
 	   <input class="btn btn-primary float-right mt-2" type="submit" value="Sign In">
 		</form>
 	  	</div>
-
-
-	 
 	</form>
 	</div>
 </body>

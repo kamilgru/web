@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary ajaxadd-save">Save changes</button>
+        <button type="button" class="btn btn-primary ajaxadd-save">Create Post</button>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
 	  </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary ajaxadd-update">Edit changes</button>
+        <button type="button" class="btn btn-primary ajaxadd-update">Edit Changes</button>
       </div>
     </div>
   </div>

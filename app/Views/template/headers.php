@@ -17,13 +17,7 @@
 			<a class="nav-link" href="<?=base_url('admin/login')?>">Login</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="<?= base_url('admin/new-post')?>">Create Post</a>
-		  </li>
-		  <li class="nav-item">
 			<a class="nav-link" href="<?= base_url('admin/register')?>">Register</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="<?= base_url('admin/search')?>">Live Search</a>
 		  </li>
 		  <li class="nav-item">
 			<a class="nav-link" href="<?= route_to('admin.logout') ?>">Logout</a>

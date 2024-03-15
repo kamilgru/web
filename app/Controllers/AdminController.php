@@ -14,7 +14,7 @@ class AdminController extends BaseController
 	
 	public function logoutHandler(){
 		CIAuth::forget();
-		return redirect()->route('admin.login.form')->with('fail','you are logged out');
+		return redirect()->route('admin.login.form')->with('fail','You Are Logged Out');
 	}
 	
 	public function addPost()
@@ -31,7 +31,7 @@ class AdminController extends BaseController
 		'description' => $this->request->getPost('description')
 		];
 		$post->save($data);
-		$data = ['status'=>'data inserted'];
+		$data = ['status'=>'Data Inserted'];
 		return $this->response->setJSON($data);
 	}
 	
@@ -60,7 +60,7 @@ class AdminController extends BaseController
 			'description' => $this->request->getPost('description')
 		];
 		$edit->update($id, $data);
-		$message = ['status' => 'updated successfully'];
+		$message = ['status' => 'Updated Successfully'];
 		return $this->response->setJSON($message);
 	}
 	

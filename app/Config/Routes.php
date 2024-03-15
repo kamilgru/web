@@ -14,12 +14,9 @@ $routes->group('admin', static function($routes){
 			$routes->get('logout','AdminController::logoutHandler',['as'=>'admin.logout']);
 			$routes->post('home','AdminController::index', ['as'=>'admin.home']);
 			
-			
-		$routes->get('new-post','AdminController::addPost');
-		$routes->post('add', 'AdminController::store');
 		$routes->add('register', 'RegController::index');
 		$routes->get('search', 'AdminController::search');
-		//$routes->get('home','AdminController::index');
+		$routes->get('home','AdminController::index');
 		$routes->get('home/getdata','AdminController::fetch');
 		$routes->post('home/store', 'AdminController::store');
 		$routes->post('home/edit', 'AdminController::edit');
