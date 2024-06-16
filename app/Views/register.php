@@ -10,6 +10,22 @@
 
     <div class="col-md-6 mt-2">
         <h2 class="text-center text-dark mb-2">Register</h2>
+		
+	<style>
+    @media only screen and (max-width: 414px) {
+        body {
+            background-color: white;
+        }
+    }
+</style>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 	<?php
 	function display_error($validation,$field) {
 		if(isset($validation))
