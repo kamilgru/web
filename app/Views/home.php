@@ -13,6 +13,38 @@
         }
     }
 </style>
+
+<?php
+$url = 'https://quotes15.p.rapidapi.com/quotes/random/?language_code=en';
+
+$options = array(
+    'http' => array(
+        'header'  => "x-rapidapi-key: b7da402657msh10f92be95fd28ffp1d16b2jsnc42b4e3ba295\r\n" .
+                     "x-rapidapi-host: quotes15.p.rapidapi.com\r\n",
+        'method'  => 'GET'
+    )
+);
+
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+
+if ($result === FALSE) {
+    // Handle error
+    die('Error occurred');
+}
+
+$response = json_decode($result, true);
+
+// Display the result
+if (isset($response['content'])) {
+    echo '<p>Motivational Quote: ' . htmlspecialchars($response['content']) . '</p>';
+    if (isset($response['originator']['name'])) {
+        echo '<p>Author: ' . htmlspecialchars($response['originator']['name']) . '</p>';
+    }
+} else {
+    echo '<p>No quote found</p>';
+}
+?>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
