@@ -1,31 +1,46 @@
-
 <?php include ('template/headers.php') ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 
-<div class = "container mt-2 mt-md-5">
-
-	<style>
-    @media only screen and (max-width: 414px) {
-        body {
-            background-color: white;
+    <style>
+        @media only screen and (max-width: 414px) {
+            .login-form-container {
+                transform: scale(1.2);
+                transform-origin: 0 0;
+                width: 100%;
+            }
+            .login-form {
+                width: 100%;
+            }
+            .form-control {
+                font-size: 1.2rem;
+                padding: 0.75rem;
+            }
+            .btn {
+                font-size: 1.2rem;
+                padding: 0.75rem 1.5rem;
+            }
         }
-    }
-</style>
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
-<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    </style>
 
 	<div class="row">
 		<div class="col-md-6 mt-2">
 		<h2 class="text-center text-dark mb-2 ">Login</h2>
+		
+
 		<?php $validation = \Config\Services::validation(); ?>
 		<form action="<?= base_url('admin/home') ?>" method="POST">
 		  <?= csrf_field() ?>

@@ -7,11 +7,16 @@
     <title>Document</title>
 	
 	<style>
-    @media only screen and (max-width: 414px) {
-        body {
-            background-color: white;
-        }
+@media only screen and (max-width: 414px) {
+    table {
+        width: 100%;
     }
+
+    table td, table th {
+        font-size: 12px;
+    }
+}
+
 </style>
 
 <?php
@@ -142,6 +147,7 @@ if (isset($response['content'])) {
 				<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary float-end">Add data</a>
 </head>
 <body>
+
 	<table class="table table-striped table-bordered" style="width:100%">
     <thead>
 		<tr>
